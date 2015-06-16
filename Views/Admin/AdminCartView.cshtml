@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "AdminCartView";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+    <link href="~/bootstrapAdmin/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/bootstrapAdmin/css/simple-sidebar.css" rel="stylesheet">
+}
+
+@using System.Collections
+@using Term_Project_View.Models
+@model List<UserTable>
+
+
+<html>
+
+<body>
+
+    <div id="wrapper">
+        <div class="row"></div>
+        <!-- Page Content -->
+
+        <div class="row" style="padding-top:40px"></div>
+        <div class="col-xs-10">
+            <div class="panel panel-default">
+                <div class="panel-heading"></div>
+                <div class="panel-body">
+                    CART MANAGMENT
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                
+                                <th>User Name</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>Country</th>
+                                <th>Customer ID</th>
+                                <th>Quantity</th>
+                                <th>Sub-Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (UserTable u in Model)
+                            {
+                                foreach (cart c in u.carts)
+                                {
+                                    <tr>
+
+
+                                        <td>@c.UserTable.userName</td>
+                                        <td>@c.UserTable.Email</td>
+                                        <td>@c.UserTable.address</td>
+                                        <td>@c.UserTable.city</td>
+                                        <td>@c.UserTable.country</td>
+                                        <td>@c.custID</td>
+                                        <td>@c.quantity</td>
+                                        <td>@c.subTotal</td>
+                                        <td>
+
+                                            @Html.ActionLink("Delete", "deleteCart", new { cartID = c.Id }, new { Class = "btn btn-danger" })
+
+                                        </td>
+
+                                    </tr>
+                                }
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+

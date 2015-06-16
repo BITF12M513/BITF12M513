@@ -1,0 +1,233 @@
+﻿@{
+    ViewBag.Title = "Pdetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/themes/css/flexslider.css" rel="stylesheet" />
+}
+
+@model Term_Project_View.Models.Item
+
+@{
+     
+    int UserId = (int)Session["uid"];
+    
+ }
+
+
+<div id="wrapper" class="container">
+    <section class="header_text sub">
+        <img class="pageBanner" src="~/Content/themes/images/pageBanner.jpg" alt="New products">
+        <h4><span>Product Detail</span></h4>
+    </section>
+    <section class="main-content">
+        <div class="row">
+            <div class="span9">
+                <div class="row">
+                    <div class="span4">
+                        <a class="thumbnail" data-fancybox-group="group1" title="Description 1"><img src="~/Files/@Model.picturePath" width="100" height="100" /></a>
+                        <ul class="thumbnails small">
+                            <li class="span1">
+                                <a class="thumbnail" data-fancybox-group="group1" title="Description 2"><img src="~/Content/themes/images/shirts/2.jpg" alt=""></a>
+                            </li>
+                            <li class="span1">
+                                <a class="thumbnail" data-fancybox-group="group1" title="Description 3"><img src="~/Content/themes/images/shirts/3.jpg" alt=""></a>
+                            </li>
+                            <li class="span1">
+                                <a class="thumbnail" data-fancybox-group="group1" title="Description 4"><img src="~/Content/themes/images/shirts/4.jpg" alt=""></a>
+                            </li>
+                            <li class="span1">
+                                <a class="thumbnail" data-fancybox-group="group1" title="Description 5"><img src="~/Content/themes/images/shirts/5.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="span5">
+                        <address>
+                            <strong>Product Name:</strong> <span> @Model.ItemName</span><br>
+                            <strong>Product Description:</strong> <span> @Model.description</span><br>
+                            <strong>Product Code:</strong> <span> @Model.Id</span><br>
+                        </address>
+                        <h4><strong>Price: $@Model.price</strong></h4>
+                    </div>
+                    <div class="span5">
+                        <form class="form-inline" method="post" action="~/home/cart">
+                            <p>&nbsp;</p>
+                            <label>Qty:</label>
+                            <input name="quantity" type="text" class="span1" placeholder="1" required>
+                            <input name="PID" type="hidden" value=@Model.Id />
+
+                            <button class="btn btn-inverse" type="submit" value="Add to cart">Add to cart</button>
+                        </form>
+
+                        
+
+                        <form class="form-inline" method="post" action="~/home/AddToWishList">
+
+                            <input type="hidden" name="UId" value="@UserId" />
+                            <input type="hidden" name="IId" value="@Model.Id"/>
+                             <button class="btn btn-inverse center" type="submit" value="Add to wish List" >Add to WishList</button>
+                            </form>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span9">
+                        <ul class="nav nav-tabs" id="myTab">
+                            <li class="active">Description</li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="home">The traditional FC Barcelona red and blue stripes boldly return to the new home shirt with a modern graphic fade stripe featured on the sleeves. The shirt reflects the sublime simplicity of FC Barcelona’s style of play, which at first glance appears simple, but is in fact masterfully complex. </div>
+                            <div class="tab-pane" id="profile">
+                                <table class="table table-striped shop_attributes">
+                                    <tbody>
+                                        <tr class="">
+                                            <th>Size</th>
+                                            <td>Large, Medium, Small, X-Large</td>
+                                        </tr>
+                                        <tr class="alt">
+                                            <th>Colour</th>
+                                            <td>Orange, Yellow</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <br>
+                        <h4 class="title">
+                            <span class="pull-left"><span class="text"><strong>Related</strong> Products</span></span>
+                            <span class="pull-right">
+                                <a class="left button" href="#myCarousel-1" data-slide="prev"></a><a class="right button" href="#myCarousel-1" data-slide="next"></a>
+                            </span>
+                        </h4>
+                        <div id="myCarousel-1" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="active item">
+                                    <ul class="thumbnails listing-products">
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <span class="sale_tag"></span>
+                                                <a href="/Product/Products"><img alt="" src="~/Content/themes/images/shirts/6.jpg"></a><br />
+                                                <a class="title">FCB Hood </a><br />
+                                                <a class="category">Hoods</a>
+                                                <p class="price">$199</p>
+                                            </div>
+                                        </li>
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <span class="sale_tag"></span>
+                                                <a href="/Product/Products"><img alt="" src="~/Content/themes/images/shirts/5.png"></a><br />
+                                                <a class="title">FCB Zipper</a><br />
+                                                <a class="category">Jackets</a>
+                                                <p class="price">$241</p>
+                                            </div>
+                                        </li>
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <a href="/Product/Products"><img alt="" src="~/Content/themes/images/shirts/4.jpg"></a><br />
+                                                <a  class="title">FCB Alternate Kit</a><br />
+                                                <a class="category">Shirts</a>
+                                                <p class="price">$28</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item">
+                                    <ul class="thumbnails listing-products">
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <span class="sale_tag"></span>
+                                                <a href="/Product/Products"><img alt="" src="~/Content/themes/images/shirts/H-4.jpg"></a><br />
+                                                <a class="title">FCB Zipper</a><br />
+                                                <a  class="category">Jackets</a>
+                                                <p class="price">$341</p>
+                                            </div>
+                                        </li>
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <a href="/Product/Products"><img alt="" src="~/Content/themes/images/shirts/B-1.jpg"></a><br />
+                                                <a >FCB Bags</a><br />
+                                                <a  class="category">Bags</a>
+                                                <p class="price">$28</p>
+                                            </div>
+                                        </li>
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <span class="sale_tag"></span>
+                                                <a href="/Product/Products"><img alt="" src="~/Content/themes/images/shirts/H-6.jpg"></a><br />
+                                                <a class="title">FCB Zipper</a><br />
+                                                <a  class="category">Zippers</a>
+                                                <p class="price">$231</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="span3 col">
+                <div class="block">
+                    <h4 class="title">
+                        <span class="pull-left"><span class="text">Randomize</span></span>
+                        <span class="pull-right">
+                            <a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
+                        </span>
+                    </h4>
+                    <div id="myCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <ul class="thumbnails listing-products">
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <span class="sale_tag"></span>
+                                            <a href="/Product/Products"><img alt="" src="~/Content/themes/images/shirts/20.png"></a><br />
+                                            <a  class="title">Captain In Red</a><br />
+                                            <a  class="category">Zipper</a>
+                                            <p class="price">$261</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <ul class="thumbnails listing-products">
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <a href="/Product/Products"><img alt="" src="~/Content/themes/images/shirts/21.jpg"></a><br />
+                                            <a class="title">King Classic</a><br />
+                                            <a class="category">Classic</a>
+                                            <p class="price">$999</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block">
+                    <h4 class="title"><strong>Best</strong> Seller</h4>
+                    <ul class="small-product">
+                        <li>
+                            <a href="/Product/Products" title="FCB Jackets">
+                                <img src="~/Content/themes/images/shirts/7.jpg" alt="FCB Jackets">
+                            </a>
+                            <a >FCB Jackets</a>
+                        </li>
+                        <li>
+                            <a href="/Product/Products" title="Suarez Home Kit">
+                                <img src="~/Content/themes/images/shirts/S-4.jpg" alt="Suarez Home Kit">
+                            </a>
+                            <a >Suarez Home Kit</a>
+                        </li>
+                        <li>
+                            <a href="/Product/Products" title="Leo Messi Home Kit">
+                                <img src="~/Content/themes/images/shirts/3.jpg" alt="Leo Messi Home Kit">
+                            </a>
+                            <a >Leo Messi Home Kit</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>

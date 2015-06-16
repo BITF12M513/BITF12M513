@@ -1,0 +1,82 @@
+﻿@model Term_Project_View.Models.Item
+
+@{
+
+
+    ViewBag.Title = "UpdateItem";
+    Layout = null;
+
+    <link href="~/bootstrapAdmin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/bootstrapAdmin/css/simple-sidebar.css" rel="stylesheet" />
+}
+
+
+<div class="col-lg-8">
+
+    <div style="margin-top:50px; margin-left:300px" class="panel panel-danger">
+        <div id="signupbox">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <div class="panel-title">Update Menu</div>
+                    <br />
+                    @using (Html.BeginForm("ItemSave", "Admin", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+
+                        <fieldset>
+
+                            @Html.HiddenFor(model => model.Id)
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.ItemName)
+                            </div>
+                            <br />
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.ItemName)
+                                @Html.ValidationMessageFor(model => model.ItemName)
+                            </div>
+                            <br />
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.description)
+                            </div>
+                            <br />
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.description)
+                                @Html.ValidationMessageFor(model => model.description)
+                            </div>
+                            <br />
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.quantity)
+                            </div>
+                            <br />
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.quantity)
+                                @Html.ValidationMessageFor(model => model.quantity)
+                            </div>
+                            <br />
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.price)
+                            </div>
+                            <br />
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.price)
+                                @Html.ValidationMessageFor(model => model.price)
+                            </div>
+
+                            <br />
+                            <p>
+                                <input type="submit" value="Update" class="btn-success"/>
+                            </p>
+                        </fieldset>
+                    }
+
+                    <div>
+                        @Html.ActionLink("Back to Previous Page", "Index", new { Class = "btn btn-success" })
+                    </div>
+</div>
+</div>
+</div>
+</div>
+</div>

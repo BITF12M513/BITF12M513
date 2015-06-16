@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/themes/css/flexslider.css" rel="stylesheet" />
+}
+@using System.Collections
+@using Term_Project_View.Models
+@model List<Item>
+<div id="wrapper" class="container">
+    <section class="header_text sub">
+        <img class="pageBanner" src="~/Content/themes/images/pageBanner.jpg" alt=" new products">
+        <h4 class=" center"><span>New products</span></h4>
+    </section>
+    <section class="main-content">
+
+    <div class="row">
+        <div class="span9">
+            <ul class="thumbnails listing-products">
+
+
+                @foreach (var i in Model)
+                {
+                    <li class="span3">
+                        <section>
+                            <div class="product-box">
+                                <a href="/Product/Pdetails?id=@i.Id">
+                                    <img src="~/Files/@i.picturePath" width="94" height="94" />
+                                </a><br />
+                                <a href="/Product/Pdetails?id=@i.Id" class="title">@i.ItemName</a><br />
+                                <p class="price">$ @i.price</p>
+                            </div>
+                        </section>
+                    </li>
+                
+                }
+                    
+                </ul>
+                <hr>
+            </div>
+            <div class="span3 col">
+                <div class="block">
+                    <h4 class="title">
+                        <span class="pull-left"><span class="text">Randomize</span></span>
+                        <span class="pull-right">
+                            <a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
+                        </span>
+                    </h4>
+                    <div id="myCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <ul class="thumbnails listing-products">
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <span class="sale_tag"></span>
+
+                                            <img src="~/Content/themes/images/shirts/3.jpg" />    <br />
+                                            <a href="@Url.Content("~/Product/Products")" class="title">FCB Shirts</a><br />
+                                            <a href="@Url.Content("~/Product/Products")" class="category">Messi</a>
+                                            <p class="price">$261</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <ul class="thumbnails listing-products">
+                                    <li class="span3">
+                                        <div class="product-box">
+
+                                            <img src="~/Content/themes/images/shirts/S-4.jpg" /><br />
+                                            <a href="@Url.Content("~/Product/Products")" class="title">FCB Shirts</a><br />
+                                            <a href="@Url.Content("~/Product/Products")" class="category">Suarez</a>
+                                            <p class="price">$134</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block">
+                    <h4 class="title"><strong>Best</strong> Seller</h4>
+                    <ul class="small-product">
+                        <li>
+                            <a href="@Url.Content("~/Product/Products")" title="Limited in stock">
+
+                                <img src="~/Content/themes/images/shirts/3.jpg" alt="Leo Messi" />
+                            </a>
+                            <a href="@Url.Content("~/Product/Products")">Lionel Messi</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Content("~/Product/Products")" title="Not available now">
+                                <img src="~/Content/themes/images/shirts/S-4.jpg" alt="Limited Stocks" />
+                            </a>
+                            <a href="@Url.Content("~/Product/Products")">Luis Suarez</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Content("~/Product/Products")" title="Stock End">
+
+                                <img src="~/Content/themes/images/shirts/R-3.jpg " alt="Mobile Cover" />
+                            </a>
+                            <a href="@Url.Content("~/Product/Products")">FCB Mobile Phone Cover</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <script src="~/Content/themes/js/common.js"></script>
+        </div>
+    </section>
+    </div>

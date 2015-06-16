@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "UserDetail";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+    <link href="~/bootstrapAdmin/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/bootstrapAdmin/css/simple-sidebar.css" rel="stylesheet">
+}
+
+@using Term_Project_View.Models
+@model System.Collections.Generic.List<UserTable>
+
+<html>
+
+<body>
+
+    <div id="wrapper">
+        <div class="row"></div>
+        <!-- Page Content -->
+
+        <div class="row" style="padding-top:40px"></div>
+        <div class="col-xs-8">
+            <div class="panel panel-default">
+                <div class="panel-heading"></div>
+                <div class="panel-body">
+                    USER MANAGMENT
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>Email</th>
+                                <th>Country</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            @foreach(UserTable ut in Model)
+                            { 
+                            <tr>
+                                <td>@ut.userName</td>
+                                <td>@ut.Email</td>
+                                <td>@ut.country</td>
+                                <td>@ut.address</td>
+                                <td>@ut.city</td>
+                                
+                                <td>
+                                   @Html.ActionLink("Delete", "deleteUser", new { UserId = ut.Id }, new { Class = "btn btn-danger" })
+                                </td>
+
+                            </tr>
+                            }
+                            
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Term_Project_View.Models.UserTable
+    <div id="wrapper" class="container">
+    <section class="header_text sub">
+        <img src="~/Content/themes/images/carousel/banner-3.jpg" height="300" width="1200"/>
+        <h4><span>Thanks For Shopping!</span></h4>
+    </section>
+        @{ViewBag.userid = (int)Session["uid"];}
+        @if(Session["userName"]!=null)
+        { 
+
+    <section class="main-content">
+        <h1><span>Congratulations Your order has been placed.</span></h1>
+        <h2><span>Your Customer ID  :@ViewBag.userid</span></h2>
+        <h3><span>Remember this ID at the time of Payment</span></h3>
+    </section>
+        }
+</div>

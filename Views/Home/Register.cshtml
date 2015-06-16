@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/themes/css/flexslider.css" rel="stylesheet" />
+}
+    
+    @model Term_Project_View.Models.UserTable
+
+    <div id="wrapper" class="container">
+        <section class="header_text sub">
+
+            <img class="pageBanner" src="~/Content/themes/images/pageBanner.jpg" alt=" new products">
+            <h4><span>Login / Register</span></h4>
+        </section>
+        <section class="main-content">
+            <div class="row">
+                <div class="span5">
+                    <h4 class="title"><span class="text"><strong>Login</strong>Form</span></h4>
+                    <form action="Login" method="post">
+                        <input type="hidden" name="next" value="/">
+                        <fieldset>
+                            <div class="control-group">
+                                <label class="control-label">Username</label>
+                                <div class="controls">
+                                    <input type="text" placeholder="Enter your username" id="username" class="input-xlarge" name="userName"  required>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Password</label>
+                                <div class="controls">
+                                    <input type="password" placeholder="Enter your password" id="password" class="input-xlarge" name="password" required>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <input tabindex="3" class="btn btn-inverse large" type="submit" value="Sign into your account">
+                                <hr>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+
+                
+
+                <div class="span7">
+                    <h4 class="title"><span class="text"><strong>Register</strong> Form</span></h4>
+                    <form action="SignUp" method="post" class="form-stacked">
+                        <fieldset>
+                            <div>
+                                <div class="control-group">
+                                    <label class="control-label">Username</label>
+                                    <div class="controls">
+                                        <input type="text" placeholder="Enter your username" class="input-xlarge" id="userName" name="userName" required>
+                                        <input type="button" id="b1" value="Check" class="btn-google-plus"/>
+                                        <div id="result"></div>
+                                        @Scripts.Render("~/bundles/jquery")
+                                        <script>
+
+                                            $(document).ready(function () {
+
+                                                //  $('#checking').hide();
+
+                                                $('#b1').click(function () {
+
+                                                    var userName = $('#userName').val();
+
+                                                    //alert('User Name ='+ userName);
+                                                    //   $('#checking').show();
+                                                    $.getJSON("/home/CheckUserName?userName=" + userName, function (data) {
+                                                        $('#checking').hide();
+                                                        if (data) {
+                                                            $('#result').text("User already exists in database");
+
+                                                        }
+                                                        else {
+                                                            $('#result').text("User Name is available");
+                                                        }
+                                                    });
+
+                                                });
+
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label">Email address:</label>
+                                    <div class="controls">
+                                        <input type="email" placeholder="Enter your email" class="input-xlarge" name="Email" id="email" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Password:</label>
+                                    <div class="controls">
+                                        <input type="password" placeholder="Enter your password" class="input-xlarge" name="password" required>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label">Address:</label>
+                                    <div class="controls">
+                                        <input type="text" placeholder="Enter your address" class="input-xlarge" name="address" required>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label">City:</label>
+                                    <div class="controls">
+                                        <input type="text" placeholder="Enter your city" class="input-xlarge" name="city" required>
+                                    </div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    <label class="control-label">Country:</label>
+                                    <div class="controls">
+                                        <input type="text" placeholder="pakistan" class="input-xlarge" name="country" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Create your account"></div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+

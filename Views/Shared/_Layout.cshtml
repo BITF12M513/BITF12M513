@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">      
+    <link href="~/Content/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="~/Content/themes/css/bootstrappage.css" rel="stylesheet" />
+    <link href="~/Content/themes/css/flexslider.css" rel="stylesheet" />
+    <link href="~/Content/themes/css/main.css" rel="stylesheet" />
+
+    <script src="~/Content/themes/js/jquery-1.7.2.min.js"></script>
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/themes/js/jquery.scrolltotop.js"></script>
+    
+    <script src="~/Content/themes/js/superfish.js"></script>	
+    				
+
+</head>
+<body>
+
+    <div id="top-bar" class="container">
+           
+        <div class="row">
+            
+            <div class="span4">
+                <form method="POST" class="text" action="~/Home/Search">
+                    <div class="wrapper">
+                        <input type="text" class="text" name="ItemName" placeholder="eg. T-shirt">
+                        <br />
+                        <input type="submit" class="btn btn-primary" value="Seacrh" />
+                    </div>
+                </form>
+            </div>
+
+          
+            <div class="span8">
+                <div class="account pull-right">
+                    <ul class="user-menu">
+                        
+                        
+                        
+                        @if(Session["userName"]==null)
+                        { 
+                            <li><a href="@Url.Content("~/Home/Register")">Login</a></li>
+                            <li><a href="@Url.Content("~/Home/index")">Home</a></li>
+                        }
+
+                        else
+                        {
+                            <li><a href="@Url.Content("~/Home/cart?quantity=1&PID=4")">Your Cart</a></li>
+                            <li><a href="@Url.Content("~/Home/Invertsession")"> Welcome @((string)Session["userName"]) Logout</a></li>
+                            
+
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper" class="container">
+        <section class="navbar main-menu">
+            <div class="navbar-inner main-menu">
+                <a href=@Url.Content("~/Home/Index") class="logo pull-left">
+                    <img src="~/Content/themes/images/logo.png" />
+                </a>
+                <nav id="menu" class="pull-right">
+                    <ul>
+                        <li>
+                            <a href="@Url.Content("~/Product/Products")">Kits</a>
+                            <ul>
+                                <li><a href="@Url.Content("~/Product/Products")">Home</a></li>
+                                <li><a href="@Url.Content("~/Product/Products")">Away</a></li>
+                                <li><a href="@Url.Content("~/Product/Products")">Alternate</a></li>
+                            </ul>
+                        </li>
+                        @if (Session["userName"] != null)
+                        {
+                           <li><a href="@Url.Content("~/Product/Products")">Buy Products</a></li>
+                        }
+                        
+                        <li><a href="@Url.Content("~/Product/Products")">Best Seller</a></li>
+                        <li><a href="@Url.Content("~/Product/Products")">Top Seller</a></li>
+                    </ul>
+                </nav>
+            </div>
+            </section>
+        </div>
+
+
+            @RenderBody()
+            
+    <div id="wrapper" class="container">
+        <section id="footer-bar">
+            <div class="row">
+                <div class="span3">
+                    <h4>Navigation</h4>
+                    <ul class="nav">
+                        <li><a href="@Url.Content("~/Home/index")">Homepage</a></li>
+                        <li><a href="@Url.Content("~/Home/contact")">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="span5">
+                    <p class="logo"><img src="~/Content/themes/images/logo.png" class=" site_logo" alt=""></p>
+                    <p>FOOTBALL Is All about PASSION and Business is ALL about a combination of WAR and SPORTS.</p>
+                    <span>Copyright 2015 Football Hub. All right reserved.</span>
+                    <br />
+
+                </div>
+            </div>
+        </section>
+    </div>
+            @Scripts.Render("~/bundles/jquery")
+            @RenderSection("scripts", required: false)
+</body>
+</html>

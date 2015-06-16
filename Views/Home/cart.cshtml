@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/themes/css/flexslider.css" rel="stylesheet" />
+}
+
+
+@using Term_Project_View.Models
+@model System.Collections.Generic.List<cart>
+
+<div id="wrapper" class="container">
+    <section class="header_text sub">
+        <img class="pageBanner" src="~/Content/themes/images/pageBanner.jpg" alt="New products">
+        <h4><span>Shopping Cart</span></h4>
+    </section>
+
+
+    
+    <section class="main-content">
+        <div class="row">
+            <div class="span9">
+                <h4 class="title"><span class="text"><strong>Your</strong> Cart</span></h4>
+                <table class="table table-striped">
+                    <thead>
+
+                               
+                        <tr>
+                            <th>Remove</th>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Total</th>
+                        </tr>
+                 
+                    </thead>
+                    <tbody>
+                        @{double total = 0.0;}
+                        @foreach (cart c in Model)
+                        { 
+                        <tr>
+                            <td>@Html.ActionLink("Remove", "RemoveItem", new { id = c.Id }, new { Class = "btn btn-success" })</td>
+                            <td><a href="product_detail.html"><img alt="" src="~/Content/themes/images/Allproducts/@c.Item.picturePath" height="95" width=" 95"></a></td>
+                            <td>@c.Item.ItemName</td>
+                            <td>@c.quantity</td>
+                            <td>$@c.Item.price</td>
+                            <td>@c.subTotal</td>
+                            @{total = total + c.subTotal;}
+                           
+                            @{ViewBag.userid = (int)Session["uid"];}
+                        </tr>
+                        }
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><strong>$@total</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+             
+                <p class="buttons center">
+                    
+                    <a class="btn btn-primary" href="/Checkout/checkout?id=@ViewBag.userid">Check Out</a>
+                </p>
+            </div>
+        </div>
+    </section>
+</div>

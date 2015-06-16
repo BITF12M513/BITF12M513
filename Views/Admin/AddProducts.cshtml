@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "AddProducts";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+    <link href="~/bootstrapAdmin/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/bootstrapAdmin/css/simple-sidebar.css" rel="stylesheet">
+}
+
+@using Term_Project_View.Models
+@model System.Collections.Generic.List<Item>
+
+<html>
+<body>
+
+    <div id="wrapper">
+        <div class="row"></div>
+        <!-- Page Content -->
+        <div class="col-xs-8" style="padding-top:40px">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    Add Item
+                </div>
+
+                <div class="panel-body">
+                    <div class="form">
+                        <form role="form" method="post" action="AddItem" enctype="multipart/form-data">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr style="padding-left:10px">
+                                    <td><p>Enter Name</p></td>
+                                    <td><input name="ItemName" type="text" placeholder="Shirts" required></td>
+                                </tr>
+
+                                <tr style="padding-left:10px">
+                                    <td><p>Enter Desc.</p></td>
+                                    <td><input name="description" type="text" placeholder="Arsenal" required></td>
+                                </tr>
+                                <tr style="padding-left:10px">
+                                    <td><p>Enter quantity</p></td>
+                                    <td><input name="quantity" type="text" placeholder="10" required></td>
+                                </tr>
+                                <tr style="padding-left:10px">
+                                    <td><p>Enter Price</p></td>
+                                    <td><input name="price" type="text" placeholder="200$" required></td>
+                                </tr>
+
+                                <tr style="padding-left:10px">
+                                    <td><p>Enter Brand</p></td>
+                                    <td><input name="brand" type="text" placeholder="Nike" required></td>
+                                </tr>
+
+
+                                <tr style="padding-left:10px">
+                                    <td><p>Choose item pic.</p></td>
+                                    <td><input name="picturePath" type="file" value="upload" required></td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="submit" value="Add Item" class="btn-success" >
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

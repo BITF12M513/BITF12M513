@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "AllJobs";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+    <link href="~/bootstrapAdmin/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/bootstrapAdmin/css/simple-sidebar.css" rel="stylesheet">
+}
+@using Term_Project_View.Models
+@model System.Collections.Generic.List<Item>
+
+<html>
+
+<body>
+
+    <div id="wrapper">
+    <div class="row"></div>
+    <!-- Page Content -->
+
+    <div class="row" style="padding-top:40px"></div>
+    <div class="col-xs-8">
+        <div class="panel panel-default">
+            <div class="panel-heading"></div>
+            <div class="panel-body">
+                ITEM MANAGMENT
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Item ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Action to Perform</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Item item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.ItemName</td>
+                                <td>@item.description</td>
+                                <td>$@item.price</td>
+                                <td>
+
+                                    @Html.ActionLink("Delete", "deleteItem", new { itemID = item.Id }, new { Class="btn btn-danger"})
+                                    @Html.ActionLink("Update", "UpdateItem", new { itemID = item.Id }, new { Class = "btn btn-success" })
+                                </td>
+
+                            </tr>
+                        }
+                        
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+
+        </div>
+</body>
+</html>

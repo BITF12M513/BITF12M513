@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Term_Project_View.Models.Contact 
+
+<div id="wrapper" class="container">
+    <section class="header_text sub">
+        <img class="pageBanner" src="~/Content/themes/images/pageBanner.jpg" alt="New products">
+        <h4><span>Contact Us</span></h4>
+    </section>
+    <section class="main-content">
+        <div class="row">
+            <div class="span5">
+                <div>
+                    <h5>ADDITIONAL INFORMATION</h5>
+                    <p>
+                        <strong>Phone:</strong>&nbsp; 0323-337381<br>
+                        <strong>Email:</strong>&nbsp;<a href="#">bitf12m513@pucit.edu.pk</a>
+                    </p>
+                    <br />
+                </div>
+            </div>
+            <div class="span7">
+                <p>Send Us Your Queries. We try our Best to give you response as soon as possible because we are Best Football Community in the World.</p>
+                <form method="post" action="UserMessages">
+                    <fieldset>
+                        @if(Session["userName"]!=null)
+                        { 
+                        <div class="clearfix">
+                            <label for="name"><span>Name:</span></label>
+                            <div class="input">
+                                <input tabindex="1" size="18"  name="Name" type="text" value="@Model.Name" class="input-xlarge" placeholder="Name">
+                            </div>
+                        </div>
+                        }
+                        else
+                        {
+                            <div class="clearfix">
+                                <label for="name"><span>Name:</span></label>
+                                <div class="input">
+                                    <input tabindex="1" size="18"  name="Name" type="text"  class="input-xlarge" placeholder="Enter name here" required>
+                                </div>
+                            </div>
+
+                        }
+
+
+                        @if(Session["userName"] != null)
+                        { 
+                        <div class="clearfix">
+                            <label for="email"><span>Email:</span></label>
+                            <div class="input">
+                                <input type="hidden" name="Id" id="Id" value="@Model.Id"/>
+                                <input tabindex="2"  id="CEmail" name="CEmail" type="text" value="@Model.CEmail" class="input-xlarge" placeholder="Email Address">
+                            </div>
+                        </div>
+                        }
+                        else
+                        {
+                            <div class="clearfix">
+                                <label for="email"><span>Email:</span></label>
+                                <div class="input">
+                                    <input tabindex="2"  id="CEmail" name="CEmail" type="text" class="input-xlarge" placeholder="Email Address" required>
+                                </div>
+                            </div>
+                        }
+                            
+                        
+                        <div class="clearfix">
+                            <label for="message"><span>Your Demands/Feedback:</span></label>
+                            <div class="input">
+                                <textarea tabindex="3" class="input-xlarge" id="Message" name="Message" rows="7" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Send Message" name=""></div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

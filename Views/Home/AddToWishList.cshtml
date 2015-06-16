@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "WishList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Term_Project_View.Models
+@using System.Collections
+@model List<WishList>
+
+<div id="wrapper" class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Picture</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Brand</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (WishList wl in Model)
+                {
+                    <tr>
+
+                        <td><img src="~/Files/@wl.Item.picturePath" width="94" height="94" /></td>
+                        <td>@wl.Item.ItemName</td>
+                        <td>@wl.Item.description</td>
+                        <td>@wl.Item.price</td>
+                        <td>@wl.Item.brand</td>
+                        
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,103 @@
+﻿<!Doctype html >
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Football Hub | Admin Panel</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/bootstrapAdmin/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/bootstrapAdmin/css/simple-sidebar.css" rel="stylesheet">
+
+    
+
+    
+       @Styles.Render("~/Content/css")
+       @Styles.Render("~/bundles/modrenizr")
+
+    
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="@Url.Content("~/Admin")">
+                        Admin Panel
+                    </a>
+                </li>
+
+                   
+                <li>
+                    <a href="@Url.Content("~/Admin/UserDetail")">User</a>
+                </li>
+                <ul>
+
+                    <li><a href="@Url.Content("~/Admin/UserDetail")">View All users</a></li>
+
+                </ul>
+                <li>
+                    <a href="@Url.Content("~/Admin/AllProducts")">Items</a>
+                    <ul>
+                        <li><a href="@Url.Content("~/Admin/AddProducts")">Add Item</a></li>
+                        <li><a href="@Url.Content("~/Admin/AllProducts")">View All Items</a></li>
+
+                    </ul>
+
+                    <ul>
+                        <li><a href="@Url.Content("~/Admin/AdminCartView")">View Carts</a></li>
+                    </ul>
+
+                    <a href="@Url.Content("~/Home/Invertsession")">Logout</a>
+
+                </li>
+
+
+
+
+
+
+
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <div class="row"></div>
+        <!-- Page Content -->
+
+        
+
+
+            <!-- /#page-content-wrapper -->
+        </div>
+
+       
+
+    
+   
+
+
+
+
+
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+    @RenderBody()
+
+</body>
+</html>
