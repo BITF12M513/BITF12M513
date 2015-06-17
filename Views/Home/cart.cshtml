@@ -40,7 +40,7 @@
                         { 
                         <tr>
                             <td>@Html.ActionLink("Remove", "RemoveItem", new { id = c.Id }, new { Class = "btn btn-success" })</td>
-                            <td><a href="product_detail.html"><img alt="" src="~/Files/" height="95" width=" 95"></a></td>
+                            <td><a href="product_detail.html"><img alt="" src="~/Files/@c.Item.picturePath" height="95" width=" 95"></a></td>
                             <td>@c.Item.ItemName</td>
                             <td>@c.quantity</td>
                             <td>$@c.Item.price</td>
